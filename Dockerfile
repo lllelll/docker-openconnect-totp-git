@@ -1,6 +1,3 @@
-FROM debian:buster-slim
-
-RUN apt-get update && apt-get install -y openconnect oathtoolkit git && \
-    apt-get clean && \
-    rm -rf /var/cache/apt/* && \
-    rm -rf /var/lib/apt/lists/*
+FROM alpine:edge
+RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories && \
+apk add oath-toolkit git openconnect
